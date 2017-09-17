@@ -17,7 +17,7 @@ or download src directly [https://github.com/dmlc/xgboost/archive/v0.60.zip]
 
 ### Get built library
 
-follow the offical [Build Guide](http://xgboost.readthedocs.io/en/latest/build.html#building-on-windows) or download the prebuilt in this repo [xgboost-v0.60-msvc-release.zip](v0.60/xgboost-v0.60-msvc-release.zip)
+follow the offical [Build Guide](http://xgboost.readthedocs.io/en/latest/build.html#building-on-windows) or download the prebuilt in this repo [xgboost-v0.60-msvc-release.zip](https://github.com/fo40225/xgboost-windows/raw/master/v0.60/xgboost-v0.60-msvc-release.zip)
 
 (my built need `vcruntime140.dll`. If you are not using Anaconda, install Microsoft Visual C++ 2015 Redistributable to get it, 2017 also works.)
 
@@ -61,5 +61,4 @@ In Python interactive shell
     import xgboost as xgb
     
 If there is no error message, you are ready to go.
-    
 
