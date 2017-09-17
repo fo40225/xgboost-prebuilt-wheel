@@ -39,7 +39,7 @@ If you get the error message likes
 
     error: Error: setup script specifies an absolute path:
 
-        xgboost\python-package\xgboost\libxgboost.dll
+        C:\Users\UserName\xgboost\python-package\xgboost\libxgboost.dll
 
     setup() arguments must *always* be /-separated paths relative to the
     setup.py directory, *never* absolute paths.
