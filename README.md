@@ -1,64 +1,25 @@
-# xgboost-windows
-This repo contains prebuilt xgboost for windows.
+# xgboost-prebuilt
+This repo contains prebuilt xgboost for python3.
 
-## How to install xgboost python-package on windows
+## Windows
+For the general purpose, download [this](https://github.com/fo40225/xgboost-prebuilt/raw/master/v0.60/windows/msvc/general/xgboost-0.6-py3-none-any.whl). 
 
-### Get source code
+    pip install xgboost-0.6-py3-none-any.whl
+### msvc
 
-Use [Git for Windows](https://git-for-windows.github.io/)
+need `vcopm140.dll` in PATH. If you are not using Anaconda, install Microsoft Visual C++ 2015 Redistributable [vc_redist.x64.exe](https://www.microsoft.com/en-us/download/details.aspx?id=53840) to get it, 2017 also works.
 
-execute this command in git bash.
+### gcc
 
-    git clone -b v0.60 --recursive https://github.com/dmlc/xgboost.git
+need gcc 6 runtime file in PATH.
 
-The source code will be clone to dir `xgboost`.
+### icc
 
-or download src directly [https://github.com/dmlc/xgboost/archive/v0.60.zip]
+Those whl are highly optimized by Intel Compiler, the folder `zen` contains cracked binary for AMD CPU.
 
-### Get built library
+## mac
 
-follow the offical [Build Guide](http://xgboost.readthedocs.io/en/latest/build.html#building-on-windows) or download the prebuilt in this repo [xgboost-v0.60-msvc-release.zip](https://github.com/fo40225/xgboost-windows/raw/master/v0.60/xgboost-v0.60-msvc-release.zip)
+OpenMP enabled.
 
-(prebuilt need `vcruntime140.dll` in PATH. If you are not using Anaconda, install Microsoft Visual C++ 2015 Redistributable [vc_redist.x64.exe](https://www.microsoft.com/en-us/download/details.aspx?id=53840) to get it, 2017 also works.)
-
-Copy `libxgboost.dll` to `xgboost\python-package\xgboost\`.
-
-### Install python package
-
-Open command prompt with python support
-
-change current dir to `xgboost\python-package`
-
-install package
-
-    python setup.py install
-
-***
-
-If you get the error message likes
-
-    error: Error: setup script specifies an absolute path:
-
-        C:\Users\UserName\xgboost\python-package\xgboost\libxgboost.dll
-
-    setup() arguments must *always* be /-separated paths relative to the
-    setup.py directory, *never* absolute paths.
-
-edit `setup.py` line 19
-
-from
-
-    LIB_PATH = libpath['find_lib_path']()
-    
-to
-    
-    LIB_PATH = [os.path.relpath(libfile, CURRENT_DIR) for libfile in libpath['find_lib_path']()]
-
-***
-
-In Python interactive shell
-
-    import xgboost as xgb
-    
-If there is no error message, you are ready to go.
-
+    brew install gcc6
+    pip3 install xgboost-0.6-py3-none-any.whl
